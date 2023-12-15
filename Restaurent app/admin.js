@@ -1,4 +1,5 @@
 
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getFirestore  ,collection, addDoc ,doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
@@ -17,35 +18,46 @@ import { getFirestore  ,collection, addDoc ,doc, setDoc } from "https://www.gsta
   const auth = getAuth(app);
   const db = getFirestore(app);
 
-//   sign up start 
+//  admin  sign up start 
 
-let btn = document.getElementById('btn')
-if(btn){
+let dbtn = document.getElementById('dbtn')
+if(dbtn){
+let dname = document.getElementById('dname')
+let rname = document.getElementById('email')
+let daddress = document.getElementById('password')
+let demail = document.getElementById('password')
+let dpassword = document.getElementById('dpassword')
 
-let email = document.getElementById('email')
-let password = document.getElementById('password')
-let name1 = document.getElementById('name1')
-btn.addEventListener('click',()=>{
+
+dbtn.addEventListener('click',()=>{
 
 
-    createUserWithEmailAndPassword(auth, email.value, password.value,name1.value)
+    createUserWithEmailAndPassword(auth, dname.value, rname.value,daddress.value, demail.value,dpassword.value)
     .then(async(userCredential) => {
       // Signed up 
       const user = userCredential.user;
       console.log(user)
-      email.value=''
-      password.value = ''
+     
+      // dname.value  = ''
+      // rname.value  =''
+      // daddress.value =''
+      // demail.value =''
+      // dpassword.value =''
+
+
+
+
+
       
-   
-
-
+      // ...
       try {
-        await setDoc(doc(db, "users ", user.uid), {
-          Name : name1.value,  
-          email: email.value,
-          password: password.value,
-          uid : user.uid
-          
+        const docRef = await addDoc(collection(db, "admin reg/log"), {
+        FName :  dname.value,
+        RName :   rname.value,
+        Raddress: daddress.value, 
+        Email : demail.value,
+        Password  : dpassword.value,
+        Uid :  user.uid  
         });
 
         console.log('added');
@@ -54,7 +66,7 @@ btn.addEventListener('click',()=>{
         console.error("Error adding document: ", e);
       }
       
-      location.href = './login.html'
+      // location.href = './login.html'
 
 
 
@@ -67,7 +79,7 @@ btn.addEventListener('click',()=>{
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage)
-
+      console.log(errorCode);
       // ..
     });
 
@@ -87,12 +99,8 @@ if(sbtn){
 let semail = document.getElementById('semail')
 let spassword = document.getElementById('spassword')
 
-
-
 sbtn.addEventListener('click',()=>{
-    // if(semail.value == 'admin@gmail.com' && spassword.value == 123456 ){
-        // location.href = './for.html'
-    // }
+
 
     signInWithEmailAndPassword(auth, semail.value, spassword.value)
     .then((userCredential) => {
@@ -103,8 +111,7 @@ sbtn.addEventListener('click',()=>{
       semail.value=''
       spassword.value = ''
 
-      
-    //   location.href = './welcome.html'
+      // location.href = './welcome.html'
       // ...
     })
     .catch((error) => {
@@ -114,5 +121,62 @@ sbtn.addEventListener('click',()=>{
     });
 })
 }
+
+
+
+
+// Read data 
+
+
+
+
+
+// let getalluser = async()=>{
+
+//   const querySnapshot = await getDocs(collection(db, "users"));
+//   querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} =>` ,doc.data()); 
+//   // document.write(doc.id ,doc.data())
+// });
+// }
+
+// getalluser()
+
+
+
+
+
+
+// Update Document eamil password
+// let Update = document.getElementById('Update')
+// if(Update){
+// Update.addEventListener('click',async()=>{
+//     const id = auth.currentUser.uid 
+//     const washingtonRef = doc(db, "users", id);
+
+//     let email = document.getElementById('email')
+//     let password = document.getElementById('password')
+
+//     try{
+//           await updateDoc(washingtonRef, {
+//       email: email.value ,
+//       password : password.value
+      
+// });
+// console.log('update')
+//     }catch(err){
+
+//       console.log(err)
+//     }
+
+    
+
+
+
+// })
+
+
+// }
+
 
 
