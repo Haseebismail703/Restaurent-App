@@ -5,8 +5,8 @@
         <title>Burger King - Food Website </title>
 
         <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
-
+        <link href="/img/227390-removebg-preview.png" rel="icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
         
@@ -24,7 +24,27 @@
         
     </head>
 
-    <body id="body" >
+    <body onload="myfunction()" id="body" >
+   
+
+
+         <div title="Got to top" id="progress">
+            <span id="progress-value">&#x1F815;</span>
+          </div>
+         
+         
+
+
+
+     <!-- go to top -->
+
+    
+
+
+
+
+
+
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
@@ -786,7 +806,7 @@ Lean, mean grilling machine! Savor juicy, low-fat ground beef, perfect for guilt
                                     <h2>Quick Links</h2>
                                     <a href="./ad.html"><del>Register as a admin </del></a>
                                     <a href="#">Privacy policy</a>
-                                    <a href="#">Become a delivery boy</a>
+                                    <a href="#"> <del>Become a delivery boy</del></a>
                                     <a href="#">Help</a>
                                     <a href="#">FQAs</a>
                                 </div>
@@ -817,6 +837,10 @@ Lean, mean grilling machine! Savor juicy, low-fat ground beef, perfect for guilt
         </div>
         <!-- Footer End -->
 
+    
+       
+
+
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
         <!-- JavaScript Libraries -->
@@ -833,8 +857,19 @@ Lean, mean grilling machine! Savor juicy, low-fat ground beef, perfect for guilt
         <!-- <script src="mail/contact.js"></script> -->
 
         <!-- Template Javascript -->
+        
         <script type="module" src="app.js"></script>
+     
+     
      <script>
+
+    let preloaders = document.getElementById('loader')
+
+     function myfunction(){
+        preloaders.style.display = 'none'
+
+     }
+
           $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
             $('.navbar').addClass('nav-sticky');
@@ -843,8 +878,28 @@ Lean, mean grilling machine! Savor juicy, low-fat ground beef, perfect for guilt
         }
     });
     
-  
+    let calcScrollValue = () => {
+  let scrollProgress = document.getElementById("progress");
+  let progressValue = document.getElementById("progress-value");
+  let pos = document.documentElement.scrollTop;
+  let calcHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  let scrollValue = Math.round((pos * 100) / calcHeight);
+  if (pos > 100) {
+    scrollProgress.style.display = "grid";
+  } else {
+    scrollProgress.style.display = "none";
+  }
+  scrollProgress.addEventListener("click", () => {
+    document.documentElement.scrollTop = 0;
+  });
+  scrollProgress.style.background = `conic-gradient(#03cc65 ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+};
 
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
+     
 
      </script>
     </body>

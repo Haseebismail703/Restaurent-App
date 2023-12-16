@@ -1,8 +1,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-import { getFirestore  ,collection, addDoc ,doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-  const firebaseConfig = {
+import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,GoogleAuthProvider , signInWithPopup} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { getFirestore  ,collection, addDoc} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+const firebaseConfig = {
     apiKey: "AIzaSyD52tNswEOG9bq-xqYotmQK3vRwa2rtm2Q",
     authDomain: "restaurent-app-dc0dd.firebaseapp.com",
     projectId: "restaurent-app-dc0dd",
@@ -16,63 +16,62 @@ import { getFirestore  ,collection, addDoc ,doc, setDoc } from "https://www.gsta
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
-
+  const provider = new GoogleAuthProvider();
 //   sign up start 
 
+  let n = document.getElementById('n')
+  let email = document.getElementById('email')
+  let password = document.getElementById('password') 
 let btn = document.getElementById('btn')
 if(btn){
-
-let email = document.getElementById('email')
-let password = document.getElementById('password')
-let name1 = document.getElementById('name1')
 btn.addEventListener('click',()=>{
+ 
+  createUserWithEmailAndPassword(auth, email.value, password.value ,n.value)
+  .then(async(userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        fulln : n.value,
+        email: email.value,
+        password: password.value,
+       });
+        Swal.fire({
+        title: "Good job!",
+        text: "Sign in successful",
+        icon: "success"
+         });
 
-
-    createUserWithEmailAndPassword(auth, email.value, password.value,name1.value)
-    .then(async(userCredential) => {
-      // Signed up 
-      const user = userCredential.user;
-      console.log(user)
-      email.value=''
-      password.value = ''
+      email.value='',
+      password.value='',
+      n.value=''
       
-   
-
-
-      try {
-        await setDoc(doc(db, "users ", user.uid), {
-          Name : name1.value,  
-          email: email.value,
-          password: password.value,
-          uid : user.uid
-          
-        });
-
-        console.log('added');
-        // console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-      
+     
+      console.log("Document written with ID: ", docRef.id);
       location.href = './login.html'
 
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    // ...
+  })
+  .catch((error) => {
 
+    email.value='',
+    password.value='',
+    n.value=''
 
-
-
-
-
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage)
-
-      // ..
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
     });
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 
 })
-
 }
 
 // sign up end 
@@ -90,29 +89,84 @@ let spassword = document.getElementById('spassword')
 
 
 sbtn.addEventListener('click',()=>{
-    // if(semail.value == 'admin@gmail.com' && spassword.value == 123456 ){
-        // location.href = './for.html'
-    // }
+    if(semail.value == 'admin@gmail.com' && spassword.value == 123456 ){
+        location.href = './for.html'
+    }
 
     signInWithEmailAndPassword(auth, semail.value, spassword.value)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user)
-      alert('sign in succesfuly')
+      // console.log(user)
       semail.value=''
       spassword.value = ''
-
+      Swal.fire({
+        title: "Good job!",
+        text: "Sign in successful",
+        icon: "success"
+      });
       
-    //   location.href = './welcome.html'
+      // location.href = './'
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage)
+      semail.value=''
+      spassword.value = ''
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
+
+
+
     });
 })
 }
+
+
+//  sign up with google 
+
+let gbtn = document.getElementById('gbtn')
+
+if(gbtn){
+
+gbtn.addEventListener('click',()=>{
+
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    console.log('Succesful'); 
+  }).catch((error) => {
+    
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
+
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+    });
+    const email = error.customData.email;
+    
+    const credential = GoogleAuthProvider.credentialFromError(error);
+   
+  });
+})
+}
+
+// 
+
+
+
+
 
 

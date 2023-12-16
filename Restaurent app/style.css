@@ -9,6 +9,112 @@ body {
 html{
     scroll-behavior: smooth;
 }
+
+.butto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+  }
+  
+  .svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+  }
+  
+  .svgIcon path {
+    fill: rgba(16, 193, 66, 0.161);
+
+  }
+ 
+  .butto:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(160, 255, 220);
+    align-items: center;
+    color: #0de57d;
+  }
+  
+  .butto:hover .svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+  }
+  
+  .butto::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Back to Top";
+    color: rgb(0, 0, 0);
+    transition-duration: 1s;
+    font-size: 0px;
+  }
+  
+  .butto:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    transform: translateY(-30px);
+    transition-duration: 0.3s;
+  } 
+
+
+  /*  */
+
+
+
+
+ 
+  #progress {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    height: 70px;
+    width: 70px;
+    display: none;
+    place-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 99999;
+    font-size: large;
+  }
+  #progress-value {
+    display: block;
+    height: calc(100% - 20px);
+    width: calc(100% - 30px);
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 35px;
+    color: #fbaf32;
+   
+  }
+  
+/* loder */
+
+
+
+
+
+
+/* loder end  */
+
 h1,
 h2, 
 h3, 
