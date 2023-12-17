@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,GoogleAuthProvider , signInWithPopup} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-import { getFirestore  ,collection, addDoc} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+import { getFirestore  ,collection, addDoc , getDocs} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 const firebaseConfig = {
     apiKey: "AIzaSyD52tNswEOG9bq-xqYotmQK3vRwa2rtm2Q",
     authDomain: "restaurent-app-dc0dd.firebaseapp.com",
@@ -35,6 +35,7 @@ btn.addEventListener('click',()=>{
         fulln : n.value,
         email: email.value,
         password: password.value,
+        time : new Date().toString()
        });
         Swal.fire({
         title: "Good job!",
@@ -164,6 +165,66 @@ gbtn.addEventListener('click',()=>{
 }
 
 // 
+
+
+
+     
+
+
+
+      
+// Read data 
+
+
+
+
+
+let getalluser = async()=>{
+
+  const querySnapshot = await getDocs(collection(db, "users"));
+  querySnapshot.forEach((doc) => {
+  console.log(`${doc.id} =>` ,doc.data()); 
+  document.write(doc.data().email,doc.time)
+});
+}
+
+getalluser()
+
+
+
+
+
+
+// Update Document eamil password
+// let Update = document.getElementById('Update')
+// if(Update){
+// Update.addEventListener('click',async()=>{
+//     const id = auth.currentUser.uid 
+//     const washingtonRef = doc(db, "users", id);
+
+//     let email = document.getElementById('email')
+//     let password = document.getElementById('password')
+
+//     try{
+//           await updateDoc(washingtonRef, {
+//       email: email.value ,
+//       password : password.value
+      
+// });
+// console.log('update')
+//     }catch(err){
+
+//       console.log(err)
+//     }
+
+    
+
+
+
+// })
+
+
+// }
 
 
 

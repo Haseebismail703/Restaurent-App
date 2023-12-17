@@ -12,6 +12,7 @@ a {
 
 li {
 	list-style: none;
+	
 }
 
 :root {
@@ -221,6 +222,7 @@ body {
 	width: 100%;
 	margin-right: auto;
 }
+
 #content nav form .form-input {
 	display: flex;
 	align-items: center;
@@ -492,6 +494,7 @@ body {
 }
 #content main .table-data .todo .todo-list {
 	width: 100%;
+	word-break: break-all;
 }
 #content main .table-data .todo .todo-list li {
 	width: 100%;
@@ -502,6 +505,8 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+    word-break: break-all;
+
 }
 #content main .table-data .todo .todo-list li .bx {
 	cursor: pointer;
@@ -589,4 +594,50 @@ body {
 	#content main .table-data .todo .todo-list {
 		min-width: 420px;
 	}
+}
+
+
+
+/* my css  todos   */
+
+
+.todo{
+width: 270px;
+position: relative;
+height: 30px;
+border-radius: 10px;
+padding: 10px;
+
+}
+
+
+
+.fa-plus{
+	font-size: large;
+	cursor: pointer;
+	/* margin-left: 5px; */
+}
+.bx1{
+	font-size: larger;
+	/* margin-left: 10px; */
+	color: red;
+}
+.bx1:hover{
+	color: rgb(173, 47, 47);
+}
+.bx2{
+	/* position: relative; */
+	/* margin-left: 60px; */
+	/* padding: 10px; */
+	/* padding-right: 10px; */
+	/* left: 40px; */
+	/* right: 0px; */
+	
+}
+.bx2:hover{
+	color: #3C91E6;
+}
+
+.swal2-html-container{
+	color: #AAAAAA !important;
 }

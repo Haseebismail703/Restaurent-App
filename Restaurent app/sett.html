@@ -7,55 +7,80 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 	<!-- My CSS -->
 	<link rel="stylesheet" href="admin.css">
 
-	<title>AdminHub</title>
+	<title>Admin panel</title>
+	
 </head>
 <body>
-
+        
 
 	<!-- SIDEBAR -->
-	<section id="sidebar">
+	<section  id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bxs-smile'></i>
-			<span class="text">AdminHub</span>
+			<span class="text">Admin Dashboard</span>
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
+				<a href="./das.html">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="./add.html">
+                    <i class='bx bxl-product-hunt'></i>
+					
+
+					<span class="text">Add product</span>
+				</a>
+			</li>
+			<li>
+				<a href="./man.html">
+
+
 					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">My Store</span>
+
+					<span class="text">Manage product</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analytics</span>
+				<a href="./all.html">
+					<i class='bx bx-user'></i>
+					<span class="text">All User</span>
 				</a>
 			</li>
+
+
 			<li>
-				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
+				<a href="./rep.html"   >
+					<i class='bx bxs-group' ></i>
+					<span class="text">Reports</span>
+				</a>
+			</li>
+		
+
+
+            <li>
+				<a href="./mes.html">
+					<i class='bx bxs-message'></i>
 					<span class="text">Message</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Team</span>
-				</a>
-			</li>
+
+
 		</ul>
+
+
+
+
+
 		<ul class="side-menu">
 			<li>
-				<a href="#">
+				<a href="./sett.html">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
 				</a>
@@ -115,10 +140,9 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a>
+
+
+	
 			</div>
 
 			<ul class="box-info">
@@ -129,6 +153,8 @@
 						<p>New Order</p>
 					</span>
 				</li>
+
+
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
@@ -136,6 +162,7 @@
 						<p>Visitors</p>
 					</span>
 				</li>
+
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
@@ -153,6 +180,8 @@
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
+
+
 					<table>
 						<thead>
 							<tr>
@@ -161,7 +190,12 @@
 								<th>Status</th>
 							</tr>
 						</thead>
-						<tbody>
+
+
+					
+
+
+
 							<tr>
 								<td>
 									<img src="./people.png">
@@ -170,86 +204,13 @@
 								<td>01-10-2021</td>
 								<td><span class="status completed">Completed</span></td>
 							</tr>
-							<tr>
-								<td>
-									<img src="./people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="./people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="./people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="./people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
+
+
 						</tbody>
 					</table>
 				</div>
 
-   <!-- todos -->
-
-
-   
-
-				<div class="todo" style="height: 100%;">
-					<div class="head">
-               
-
-
-
-						
-
-
-						<form action="#">
-
-							<div class="form-input   ">
-								<input title="Add your text" class="todo" type="text" placeholder="Add todo">
-								<!-- <button type="submit" class="search-btn"> -->
-									
-                             
-							  <i class="fa-solid fa-plus" title="Add now" ></i>
-							  
-          
-						     <i  class='bx bx-filter bx1' title="Delete all"></i>
-							 
-
-								<!-- </button> -->
-							</div>
-						</form>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Add your Task</p>
-							<!-- <i class='bx bx-dots-vertical-rounded' ></i> -->
-							<i class='bx bxs-edit  bx2' title="Edit" ></i>
-							<i class='bx bxs-message-rounded-x bx1 ' title="Delete"  ></i>
-							
-						</li>
-					</ul>
-				</div>
-
-
-<!-- todos end -->
+  
 
 
 			</div>
@@ -259,6 +220,12 @@
 	<!-- CONTENT -->
 	
 
-	<script src="script.js"></script>
+	<script type="module" src="script.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+
+
 </body>
+
 </html>
