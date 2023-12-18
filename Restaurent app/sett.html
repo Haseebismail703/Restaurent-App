@@ -11,8 +11,19 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="admin.css">
 
-	<title>Admin panel</title>
+	<link href="/img/images.png" rel="icon">
 	
+
+	<title>Settings</title>
+	
+<style>
+	
+
+	
+</style>
+
+
+
 </head>
 <body>
         
@@ -129,98 +140,71 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Dashboard</h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="#">Dashboard</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="#">Home</a>
-						</li>
-					</ul>
-				</div>
-
-
-	
-			</div>
-
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
-
-
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
-					</span>
-				</li>
-
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
-					</span>
-				</li>
-			</ul>
-
-
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Recent Orders</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-
-
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-
-
+					<h1>Settings</h1>
 					
-
-
-
-							<tr>
-								<td>
-									<img src="./people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-
-
-						</tbody>
-					</table>
 				</div>
 
-  
 
-
-			</div>
-		</main>
-		<!-- MAIN -->
-	</section>
-	<!-- CONTENT -->
 	
+			</div>
+
+		</main>
+
+
+<center>
+	<form class="form">
+
+		<p class="title">Update </p>
+		<p class="message">Email does not changable</p>
+			
+				
+		<label>
+			
+			<input required="" placeholder="" type="text" class="input">
+			<span>Name</span>
+		</label> 
+			
+		<label>
+			<input required="" placeholder="" type="email" class="input">
+			<span>Email</span>
+		</label>
+
+
+		<label>
+			<input required="" placeholder="" type="password" class="input">
+			<span>Current password</span>
+		</label>
+
+		<label>
+			<input required="" placeholder="" type="password" class="input">
+			<span>New password</span>
+		</label>
+
+
+		<button style="cursor: pointer;" id="Update" class="submit">Update</button>
+		
+		
+		
+</center>
+       
+		
+
+
+
+
+
+
+
+
+
+
+
+	</section>
+		<!-- MAIN -->
+
 
 	<script type="module" src="script.js"></script>
+	<script type="module" src="app.js"></script>
 	
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
