@@ -26,6 +26,7 @@ let ids = []
   let n = document.getElementById('n')
   let email = document.getElementById('email')
   let password = document.getElementById('password') 
+  
 let btn = document.getElementById('btn')
 if(btn){
 btn.addEventListener('click',()=>{
@@ -116,7 +117,7 @@ sbtn.addEventListener('click',()=>{
         icon: "success"
       });
       
-      // location.href = './'
+      location.href = 'sett.html'
       // ...
     })
     .catch((error) => {
@@ -233,35 +234,29 @@ getalluser()
 
 // Update Document eamil password
 
-// let Update = document.getElementById('Update')
-// if(Update){
-// Update.addEventListener('click',async()=>{
-//     const id = auth.currentUser.uid 
-//     const washingtonRef = doc(db, "users", id);
-
-//     let email = document.getElementById('email')
-//     let password = document.getElementById('password')
-
-//     try{
-//           await updateDoc(washingtonRef, {
-//       email: email.value ,
-//       password : password.value
-      
-// });
-// console.log('update')
-//     }catch(err){
-
-//       console.log(err)
-//     }
-
+let Update = document.getElementById('Update')
+if(Update){
+Update.addEventListener('click',async()=>{
+    const id = auth.currentUser.uid 
+    console.log(id);
+    const washingtonRef = doc(db, "users", id);
     
+    let emaill = document.getElementById('emaill')
+    let password = document.getElementById('pass')
 
+    try{
+      await updateDoc(washingtonRef, {
+      email: emaill.value,
+      password : password.value
+      
+});
+console.log('update')
+    }catch(err){
 
-
-// })
-
-
-// }
+      console.log(err,'err')
+    }
+})
+}
 
 
 
